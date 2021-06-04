@@ -1,0 +1,1 @@
+Making TypeScript + React + Webpack app from scratch
