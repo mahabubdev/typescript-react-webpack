@@ -13,6 +13,15 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(css|scss)$/,
+                exclude: /node_modules/,
+                use: ["style-loader", "css-loader", "sass-loader"]
+            },
+            {
+                test: /\.(?:ico|gif|png|jpe?g)$/i,
+                type: "asset/resource",
+            },
+            {
                 test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
                 use: [
