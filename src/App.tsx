@@ -1,15 +1,25 @@
-import img from "./tswr.png";
-import logoSvg from "./react.svg";
+// import img from "./tswr.png";
+// import logoSvg from "./react.svg";
+import { useState } from 'react';
+import Welcome from './Welcome';
+import List from './List';
+
+// interface
+export interface IState {
+    message: string
+    list: { name: string }[]
+}
 
 const App = () => {
+    const [message, setMessage] = useState<IState["message"]>("Welcome! TS + React + Webpack");
+    const [list, setList] = useState<IState["list"]>([
+        {name: "TypeScript"}, {name: "React"}, {name: "WebPack"}
+    ]);
+
     return <>
-        <h1>TypeScript + React + Webpack</h1>
+        <Welcome msg={message} />
         <hr />
-        <div className="_img">
-            <img src={logoSvg} alt="logo" />
-            <hr />
-            <img src={img} alt="TS+React+Webpack" />
-        </div>
+        <List data={list} />
     </>
 }
 
